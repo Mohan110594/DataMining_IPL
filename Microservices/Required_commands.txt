@@ -1,0 +1,258 @@
+{"index":{"_index":"vo","_id":"1"}}
+{"LOCATION":{"lat":17.406528299999998,"lon":78.55048949386448}}
+
+curl -H "Content-Type:application/json" -XPUT 'http://3.138.201.253:9200/final_players3/_mapping' -d ' { "properties" : {"uid": {"type": "keyword"}, "location" : {"type" : "geo_point"}  } }  '
+
+node index.js -f inputdata.json --index test --type test
+
+"properties" : {"uid": {"type": "keyword"}, "location" : {"type" : "geo_point"}  }
+
+{"no": "0", "id": "1", "season": 2017, "city": "Hyderabad", "date": "05/04/17", "team1": "Sunrisers Hyderabad", "team2": "Royal Challengers Bangalore", "toss_winner": "Royal Challengers Bangalore", "toss_decision": "field", "result": "normal", "dl_applied": 0, "winner": "Sunrisers Hyderabad", "win_by_runs": 35, "win_by_wickets": 0, "player_of_match": "Yuvraj Singh", "venue": "Rajiv Gandhi International Stadium", "umpire1": "AY Dandekar", "umpire2": "NJ Llong", "umpire3": "", "location": {"lat": 17.406528299999998, "lon": 78.55048949386448}, "total_runs_inn1": 207, "total_runs_inn2": 172, "total_runs": 379, "total_extras": 13, "total_wickets": 14, "total_0s": 70, "total_1s": 110, "total_2s": 18, "total_3s": 1, "total_4s": 32, "total_5s": 0, "total_6s": 17, "total_0s_inn1": 26, "total_1s_inn1": 62, "total_2s_inn1": 10, "total_3s_inn1": 1, "total_4s_inn1": 17, "total_5s_inn1": 0, "total_6s_inn1": 9, "total_0s_inn2": 44, "total_1s_inn2": 48, "total_2s_inn2": 8, "total_3s_inn2": 0, "total_4s_inn2": 15, "total_5s_inn2": 0, "total_6s_inn2": 8, "total_extras_inn1": 7, "total_wickets_inn1": 4, "total_extras_inn2": 6, "total_wickets_inn2": 10}
+
+curl -H "Content-Type:application/json" -XPUT 'http://3.138.201.253:9200/matches_extra/_mapping' -d ' {
+            "properties" : {
+        "city" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "date" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "dl_applied" : {
+          "type" : "long"
+        },
+        "id" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "location" : {
+          "type" : "geo_point"
+        },
+        "no" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "player_of_match" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "result" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "season" : {
+          "type" : "long"
+        },
+        "team1" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "team2" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "toss_decision" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "toss_winner" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "total_0s" : {
+          "type" : "long"
+        },
+        "total_0s_inn1" : {
+          "type" : "long"
+        },
+        "total_0s_inn2" : {
+          "type" : "long"
+        },
+        "total_1s" : {
+          "type" : "long"
+        },
+        "total_1s_inn1" : {
+          "type" : "long"
+        },
+        "total_1s_inn2" : {
+          "type" : "long"
+        },
+        "total_2s" : {
+          "type" : "long"
+        },
+        "total_2s_inn1" : {
+          "type" : "long"
+        },
+        "total_2s_inn2" : {
+          "type" : "long"
+        },
+        "total_3s" : {
+          "type" : "long"
+        },
+        "total_3s_inn1" : {
+          "type" : "long"
+        },
+        "total_3s_inn2" : {
+          "type" : "long"
+        },
+        "total_4s" : {
+          "type" : "long"
+        },
+        "total_4s_inn1" : {
+          "type" : "long"
+        },
+        "total_4s_inn2" : {
+          "type" : "long"
+        },
+        "total_5s" : {
+          "type" : "long"
+        },
+        "total_5s_inn1" : {
+          "type" : "long"
+        },
+        "total_5s_inn2" : {
+          "type" : "long"
+        },
+        "total_6s" : {
+          "type" : "long"
+        },
+        "total_6s_inn1" : {
+          "type" : "long"
+        },
+        "total_6s_inn2" : {
+          "type" : "long"
+        },
+        "total_extras" : {
+          "type" : "long"
+        },
+        "total_extras_inn1" : {
+          "type" : "long"
+        },
+        "total_extras_inn2" : {
+          "type" : "long"
+        },
+        "total_runs" : {
+          "type" : "long"
+        },
+        "total_runs_inn1" : {
+          "type" : "long"
+        },
+        "total_runs_inn2" : {
+          "type" : "long"
+        },
+        "total_wickets" : {
+          "type" : "long"
+        },
+        "total_wickets_inn1" : {
+          "type" : "long"
+        },
+        "total_wickets_inn2" : {
+          "type" : "long"
+        },
+        "umpire1" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "umpire2" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "umpire3" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "venue" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "win_by_runs" : {
+          "type" : "long"
+        },
+        "win_by_wickets" : {
+          "type" : "long"
+        },
+        "winner" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        }
+      }
+}  '
+
+
+
