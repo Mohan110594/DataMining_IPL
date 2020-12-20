@@ -1,5 +1,5 @@
 # DataMining_IPL
-This project aims to show some cool intresting facts, records, results of IPL by designining and developing  dashboards which can visualize the stats, records, performance of IPL Data since its inception. we have used Distributed technologies such as Elastic search cluster, AWS lambda, Dynamo DB which help to extract, transform, and load the IPL Data.
+This project aims to show some cool interesting facts, records, results of IPL by designining and developing  dashboards which can visualize the stats, records, performance of IPL Data since its inception. we have used Distributed technologies such as Elastic search cluster, AWS lambda, Dynamo DB which help to extract, transform, and load the IPL Data.
 
 
 
